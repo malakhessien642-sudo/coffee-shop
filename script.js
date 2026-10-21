@@ -1,9 +1,9 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-  // =========================
-  // 1. Product Filters
-  // =========================
+  // WhatsApp number in international format
+  const whatsappNumber = "201115830573";
 
+  // Product filters
   const filterButtons = document.querySelectorAll(".filter-btn");
   const products = document.querySelectorAll(".product-card");
 
@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", function () {
       const selectedFilter = button.dataset.filter;
 
-      filterButtons.forEach(function (btn) {
-        btn.classList.remove("active");
+      filterButtons.forEach(function (item) {
+        item.classList.remove("active");
       });
 
       button.classList.add("active");
@@ -20,123 +20,84 @@ document.addEventListener("DOMContentLoaded", function () {
       products.forEach(function (product) {
         const category = product.dataset.category;
 
-        if (
-          selectedFilter === "all" ||
-          selectedFilter === category
-        ) {
-          product.style.display = "";
-        } else {
-          product.style.display = "none";
-        }
+        product.style.display =
+          selectedFilter === "all" || category === selectedFilter
+            ? ""
+            : "none";
       });
     });
   });
 
-  // =========================
-  // 2. Shopping Cart Elements
-  // =========================
-
+  // Cart elements
   const cart = document.getElementById("cart");
-  const cartBackdrop = document.getElementById("cart-backdrop");
+  const backdrop = document.getElementById("cart-backdrop");
   const cartToggle = document.getElementById("cart-toggle");
   const closeCartButton = document.getElementById("close-cart");
-  const continueShoppingButton =
-    document.getElementById("continue-shopping");
+  const continueButton = document.getElementById("continue-shopping");
 
   const cartItemsContainer = document.getElementById("cart-items");
-  const cartEmptyMessage = document.getElementById("cart-empty");
-  const cartTotalElement = document.getElementById("cart-total");
-  const cartCountElement = document.getElementById("cart-count");
+  const cartEmpty = document.getElementById("cart-empty");
+  const cartCount = document.getElementById("cart-count");
+  const cartTotal = document.getElementById("cart-total");
   const clearCartButton = document.getElementById("clear-cart");
+  const checkoutButton = document.getElementById("whatsapp-checkout");
 
-  // Products currently in the cart
   let cartItems = [];
 
-  // =========================
-  // 3. Open and Close Cart
-  // =========================
-
+  // Open and close cart
   function openCart() {
-    if (!cart || !cartBackdrop) return;
-
     cart.classList.add("open");
-    cartBackdrop.classList.add("open");
+    backdrop.classList.add("open");
     document.body.classList.add("cart-open");
-
     cart.setAttribute("aria-hidden", "false");
-
-    if (cartToggle) {
-      cartToggle.setAttribute("aria-expanded", "true");
-    }
+    cartToggle.setAttribute("aria-expanded", "true");
   }
 
   function closeCart() {
-    if (!cart || !cartBackdrop) return;
-
     cart.classList.remove("open");
-    cartBackdrop.classList.remove("open");
+    backdrop.classList.remove("open");
     document.body.classList.remove("cart-open");
-
     cart.setAttribute("aria-hidden", "true");
-
-    if (cartToggle) {
-      cartToggle.setAttribute("aria-expanded", "false");
-    }
+    cartToggle.setAttribute("aria-expanded", "false");
   }
 
-  if (cartToggle) {
-    cartToggle.addEventListener("click", openCart);
-  }
+  cartToggle.addEventListener("click", openCart);
+  closeCartButton.addEventListener("click", closeCart);
+  backdrop.addEventListener("click", closeCart);
+  continueButton.addEventListener("click", closeCart);
 
-  if (closeCartButton) {
-    closeCartButton.addEventListener("click", closeCart);
-  }
-
-  if (cartBackdrop) {
-    cartBackdrop.addEventListener("click", closeCart);
-  }
-
-  if (continueShoppingButton) {
-    continueShoppingButton.addEventListener("click", closeCart);
-  }
-
-  // Close cart with Escape key
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
       closeCart();
     }
   });
 
-  // =========================
-  // 4. Add Products to Cart
-  // =========================
+  // Format prices
+  function formatPrice(price) {
+    return price.toLocaleString("en-EG") + " EGP";
+  }
 
-  const addButtons = document.querySelectorAll(".add-btn");
-
-  addButtons.forEach(function (button) {
+  // Add products
+  document.querySelectorAll(".add-btn").forEach(function (button) {
     button.addEventListener("click", function () {
-      const productName = button.dataset.name;
-      const productPrice = Number(button.dataset.price);
+      const name = button.dataset.name;
+      const price = Number(button.dataset.price);
 
-      if (
-        !productName ||
-        !Number.isFinite(productPrice) ||
-        productPrice < 0
-      ) {
-        alert("Sorry, this product could not be added.");
+      if (!name || !Number.isFinite(price) || price < 0) {
+        alert("حصلت مشكلة في بيانات المنتج. جربي مرة تانية.");
         return;
       }
 
       const existingItem = cartItems.find(function (item) {
-        return item.name === productName;
+        return item.name === name;
       });
 
       if (existingItem) {
-        existingItem.quantity++;
+        existingItem.quantity += 1;
       } else {
         cartItems.push({
-          name: productName,
-          price: productPrice,
+          name: name,
+          price: price,
           quantity: 1
         });
       }
@@ -146,49 +107,43 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // =========================
-  // 5. Display Cart Items
-  // =========================
-
+  // Draw the cart
   function renderCart() {
-    if (!cartItemsContainer) return;
-
     cartItemsContainer.replaceChildren();
 
-    let totalPrice = 0;
-    let totalQuantity = 0;
+    let total = 0;
+    let quantityTotal = 0;
 
     cartItems.forEach(function (item, index) {
-      const listItem = document.createElement("li");
+      const li = document.createElement("li");
 
-      const itemInfo = document.createElement("div");
-      itemInfo.className = "cart-item-info";
+      const info = document.createElement("div");
+      info.className = "cart-item-info";
 
       const name = document.createElement("strong");
       name.textContent = item.name;
 
-      const details = document.createElement("p");
-      details.textContent =
-        item.quantity + " × " + formatPrice(item.price);
+      const quantityText = document.createElement("p");
+      quantityText.textContent =
+        "الكمية: " + item.quantity + " × " + formatPrice(item.price);
 
-      const itemTotal = document.createElement("p");
-      itemTotal.textContent =
-        "Subtotal: " + formatPrice(item.price * item.quantity);
+      const subtotal = document.createElement("p");
+      subtotal.textContent =
+        "الإجمالي: " + formatPrice(item.price * item.quantity);
+
+      info.append(name, quantityText, subtotal);
 
       const controls = document.createElement("div");
       controls.className = "cart-item-controls";
 
-      const decreaseButton = document.createElement("button");
-      decreaseButton.type = "button";
-      decreaseButton.textContent = "−";
-      decreaseButton.setAttribute(
-        "aria-label",
-        "Decrease quantity of " + item.name
-      );
+      const decrease = document.createElement("button");
+      decrease.type = "button";
+      decrease.textContent = "−";
+      decrease.setAttribute("aria-label", "تقليل الكمية");
 
-      decreaseButton.addEventListener("click", function () {
+      decrease.addEventListener("click", function () {
         if (item.quantity > 1) {
-          item.quantity--;
+          item.quantity -= 1;
         } else {
           cartItems.splice(index, 1);
         }
@@ -199,94 +154,85 @@ document.addEventListener("DOMContentLoaded", function () {
       const quantity = document.createElement("span");
       quantity.textContent = String(item.quantity);
 
-      const increaseButton = document.createElement("button");
-      increaseButton.type = "button";
-      increaseButton.textContent = "+";
-      increaseButton.setAttribute(
-        "aria-label",
-        "Increase quantity of " + item.name
-      );
+      const increase = document.createElement("button");
+      increase.type = "button";
+      increase.textContent = "+";
+      increase.setAttribute("aria-label", "زيادة الكمية");
 
-      increaseButton.addEventListener("click", function () {
-        item.quantity++;
+      increase.addEventListener("click", function () {
+        item.quantity += 1;
         renderCart();
       });
 
-      const removeButton = document.createElement("button");
-      removeButton.type = "button";
-      removeButton.textContent = "Remove";
-      removeButton.addEventListener("click", function () {
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.textContent = "حذف";
+
+      remove.addEventListener("click", function () {
         cartItems.splice(index, 1);
         renderCart();
       });
 
-      controls.append(
-        decreaseButton,
-        quantity,
-        increaseButton,
-        removeButton
-      );
+      controls.append(decrease, quantity, increase, remove);
+      li.append(info, controls);
+      cartItemsContainer.appendChild(li);
 
-      itemInfo.append(name, details, itemTotal);
-      listItem.append(itemInfo, controls);
-      cartItemsContainer.appendChild(listItem);
-
-      totalPrice += item.price * item.quantity;
-      totalQuantity += item.quantity;
+      total += item.price * item.quantity;
+      quantityTotal += item.quantity;
     });
 
-    // Update total price
-    if (cartTotalElement) {
-      cartTotalElement.textContent = formatPrice(totalPrice);
-    }
+    cartCount.textContent = String(quantityTotal);
+    cartTotal.textContent = formatPrice(total);
 
-    // Update cart item count
-    if (cartCountElement) {
-      cartCountElement.textContent = String(totalQuantity);
-    }
-
-    // Show or hide the empty-cart message
-    if (cartEmptyMessage) {
-      cartEmptyMessage.style.display =
-        cartItems.length === 0 ? "" : "none";
-    }
-
-    // Hide the list when the cart is empty
+    cartEmpty.style.display = cartItems.length === 0 ? "" : "none";
     cartItemsContainer.style.display =
       cartItems.length === 0 ? "none" : "";
 
-    if (clearCartButton) {
-      clearCartButton.disabled = cartItems.length === 0;
+    clearCartButton.disabled = cartItems.length === 0;
+    checkoutButton.disabled = cartItems.length === 0;
+  }
+
+  // Clear all items
+  clearCartButton.addEventListener("click", function () {
+    cartItems = [];
+    renderCart();
+  });
+
+  // Send order details to WhatsApp
+  checkoutButton.addEventListener("click", function () {
+    if (cartItems.length === 0) {
+      alert("ضيفي منتج واحد على الأقل للسلة الأول.");
+      return;
     }
-  }
 
-  // =========================
-  // 6. Format Prices in EGP
-  // =========================
+    let total = 0;
 
-  function formatPrice(price) {
-    return (
-      "EGP " +
-      price.toLocaleString("en-EG", {
-        maximumFractionDigits: 2
-      })
-    );
-  }
+    let message = "مرحبًا، عايزة أأكد الطلب من Coffee Shop ☕\n\n";
+    message += "تفاصيل الطلب:\n";
 
-  // =========================
-  // 7. Clear Entire Cart
-  // =========================
+    cartItems.forEach(function (item, index) {
+      const subtotal = item.price * item.quantity;
+      total += subtotal;
 
-  if (clearCartButton) {
-    clearCartButton.addEventListener("click", function () {
-      cartItems = [];
-      renderCart();
+      message +=
+        (index + 1) + ". " + item.name +
+        "\nالكمية: " + item.quantity +
+        "\nسعر الوحدة: " + item.price + " جنيه" +
+        "\nالإجمالي: " + subtotal + " جنيه\n\n";
     });
-  }
 
-  // =========================
-  // 8. Initial Cart Display
-  // =========================
+    message += "إجمالي الطلب: " + total + " جنيه\n\n";
+    message += "الاسم:\n";
+    message += "العنوان:\n";
+    message += "رقم التواصل:\n";
+    message += "\nمن فضلكم أكدوا الطلب والتكلفة النهائية.";
+
+    const whatsappURL =
+      "https://wa.me/" + whatsappNumber +
+      "?text=" + encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+  });
 
   renderCart();
 });
