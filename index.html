@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Discover premium coffee, freshly roasted beans and elegant coffee accessories.">
+    <meta name="theme-color" content="#21130f">
+
+    <title>Coffee Shop | A Taste of Luxury</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar" id="top">
+
+        <a href="#top" class="logo">
+            COFFEE<span>.</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="#home" class="active">Home</a>
+            <a href="#products">Our Products</a>
+            <a href="#about">Our Story</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <a href="#products" class="nav-button">
+            Shop Now <span>↗</span>
+        </a>
+
+    </header>
+
+    <main>
+
+        <!-- HERO BANNER -->
+        <section class="hero" id="home">
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    SPECIALTY COFFEE · EST. 2026
+                </p>
+
+                <h1>
+                    COFFEE<br>
+                    <span>SHOP</span>
+                </h1>
+
+                <div class="hero-divider"></div>
+
+                <p class="hero-description">
+                    Every cup tells a story.<br>
+                    Discover the art of exceptional coffee.
+                </p>
+
+                <a href="#products" class="primary-button">
+                    EXPLORE OUR COLLECTION →
+                </a>
+
+                <p class="hero-note">
+                    PREMIUM BEANS. TIMELESS TASTE.
+                </p>
+
+            </div>
+
+            <div class="hero-image">
+                <img src="images/banner.jpg"
+                     alt="Premium freshly prepared coffee">
+            </div>
+
+            <a href="#products" class="scroll-indicator">
+                DISCOVER MORE ↓
+            </a>
+
+        </section>
+
+        <!-- BENEFITS -->
+        <section class="benefits">
+
+            <article class="benefit-item">
+                <span class="benefit-number">01</span>
+                <div>
+                    <h3>Premium Quality</h3>
+                    <p>Exceptional beans, selected with care.</p>
+                </div>
+            </article>
+
+            <article class="benefit-item">
+                <span class="benefit-number">02</span>
+                <div>
+                    <h3>Freshly Roasted</h3>
+                    <p>Rich aromas in every single cup.</p>
+                </div>
+            </article>
+
+            <article class="benefit-item">
+                <span class="benefit-number">03</span>
+                <div>
+                    <h3>Made With Passion</h3>
+                    <p>Every detail matters to us.</p>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- PRODUCTS -->
+        <section class="products section-spacing" id="products">
+
+            <div class="section-heading">
+                <p class="eyebrow">THE COFFEE COLLECTION</p>
+
+                <h2>
+                    Find Your Perfect <span>Cup</span>
+                </h2>
+
+                <p>
+                    Carefully selected favorites for your everyday ritual.
+                </p>
+            </div>
+
+            <!-- FILTERS -->
+            <div class="product-filters">
+
+                <button class="filter-btn active"
+                        type="button" data-filter="all">
+                    All Products
+                </button>
+
+                <button class="filter-btn"
+                        type="button" data-filter="beans">
+                    Coffee Beans
+                </button>
+
+                <button class="filter-btn"
+                        type="button" data-filter="drinks">
+                    Coffee Drinks
+                </button>
+
+                <button class="filter-btn"
+                        type="button" data-filter="accessories">
+                    Accessories
+                </button>
+
+            </div>
+
+            <div class="product-grid">
+
+                <!-- PRODUCT 1 -->
+                <article class="product-card" data-category="beans">
+
+                    <div class="product-image">
+                        <span class="product-tag">BESTSELLER</span>
+
+                        <img src="images/coffee-beans.jpg"
+                             alt="Premium roasted coffee beans"
+                             loading="lazy">
+
+                        <button class="quick-add add-btn"
+                                type="button"
+                                data-name="Premium Coffee Beans"
+                                data-price="250"
+                                aria-label="Add Premium Coffee Beans">
+                            +
+                        </button>
+                    </div>
+
+                    <div class="product-info">
+                        <p class="product-category">COFFEE BEANS</p>
+                        <h3>Premium Coffee Beans</h3>
+                        <p class="product-description">
+                            Rich aroma with a smooth finish.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="price">EGP 250</span>
+
+                            <button class="text-add add-btn"
+                                    type="button"
+                                    data-name="Premium Coffee Beans"
+                                    data-price="250">
+                                Add to Cart +
+                            </button>
+                        </div>
+                    </div>
+
+                </article>
+
+                <!-- PRODUCT 2 -->
+                <article class="product-card" data-category="drinks">
+
+                    <div class="product-image">
+                        <img src="images/iced-coffee.jpg"
+                             alt="Refreshing iced coffee"
+                             loading="lazy">
+
+                        <button class="quick-add add-btn"
+                                type="button"
+                                data-name="Iced Coffee"
+                                data-price="120"
+                                aria-label="Add Iced Coffee">
+                            +
+                        </button>
+                    </div>
+
+                    <div class="product-info">
+                        <p class="product-category">COLD COFFEE</p>
+                        <h3>Signature Iced Coffee</h3>
+                        <p class="product-description">
+                            Smooth coffee served over ice.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="price">EGP 120</span>
+
+                            <button class="text-add add-btn"
+                                    type="button"
+                                    data-name="Iced Coffee"
+                                    data-price="120">
+                                Add to Cart +
+                            </button>
+                        </div>
+                    </div>
+
+                </article>
+
+                <!-- PRODUCT 3 -->
+                <article class="product-card" data-category="drinks">
+
+                    <div class="product-image">
+                        <span class="product-tag">FAVORITE</span>
+
+                        <img src="images/cappuccino.jpg"
+                             alt="Cappuccino with latte art"
+                             loading="lazy">
+
+                        <button class="quick-add add-btn"
+                                type="button"
+                                data-name="Classic Cappuccino"
+                                data-price="100"
+                                aria-label="Add Classic Cappuccino">
+                            +
+                        </button>
+                    </div>
+
+                    <div class="product-info">
+                        <p class="product-category">HOT COFFEE</p>
+                        <h3>Classic Cappuccino</h3>
+                        <p class="product-description">
+                            Creamy milk and perfectly brewed espresso.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="price">EGP 100</span>
+
+                            <button class="text-add add-btn"
+                                    type="button"
+                                    data-name="Classic Cappuccino"
+                                    data-price="100">
+                                Add to Cart +
+                            </button>
+                        </div>
+                    </div>
+
+                </article>
+
+                <!-- PRODUCT 4 -->
+                <article class="product-card" data-category="accessories">
+
+                    <div class="product-image">
+                        <img src="images/french-press.jpg"
+                             alt="French press coffee maker"
+                             loading="lazy">
+
+                        <button class="quick-add add-btn"
+                                type="button"
+                                data-name="French Press"
+                                data-price="450"
+                                aria-label="Add French Press">
+                            +
+                        </button>
+                    </div>
+
+                    <div class="product-info">
+                        <p class="product-category">ACCESSORIES</p>
+                        <h3>Classic French Press</h3>
+                        <p class="product-description">
+                            Make your favorite coffee at home.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="price">EGP 450</span>
+
+                            <button class="text-add add-btn"
+                                    type="button"
+                                    data-name="French Press"
+                                    data-price="450">
+                                Add to Cart +
+                            </button>
+                        </div>
+                    </div>
+
+                </article>
+
+                <!-- PRODUCT 5 -->
+                <article class="product-card" data-category="accessories">
+
+                    <div class="product-image">
+                        <img src="images/coffee-mug.jpg"
+                             alt="Elegant ceramic coffee mug"
+                             loading="lazy">
+
+                        <button class="quick-add add-btn"
+                                type="button"
+                                data-name="Classic Coffee Mug"
+                                data-price="180"
+                                aria-label="Add Classic Coffee Mug">
+                            +
+                        </button>
+                    </div>
+
+                    <div class="product-info">
+                        <p class="product-category">ACCESSORIES</p>
+                        <h3>Classic Coffee Mug</h3>
+                        <p class="product-description">
+                            A beautiful companion for every cup.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="price">EGP 180</span>
+
+                            <button class="text-add add-btn"
+                                    type="button"
+                                    data-name="Classic Coffee Mug"
+                                    data-price="180">
+                                Add to Cart +
+                            </button>
+                        </div>
+                    </div>
+
+                </article>
+
+                <!-- PRODUCT 6 -->
+                <article class="product-card" data-category="beans">
+
+                    <div class="product-image">
+                        <img src="images/coffee-jar.jpg"
+                             alt="Jar of roasted coffee beans"
+                             loading="lazy">
+
+                        <button class="quick-add add-btn"
+                                type="button"
+                                data-name="Signature Coffee Jar"
+                                data-price="300"
+                                aria-label="Add Signature Coffee Jar">
+                            +
+                        </button>
+                    </div>
+
+                    <div class="product-info">
+                        <p class="product-category">COFFEE BEANS</p>
+                        <h3>Signature Coffee Jar</h3>
+                        <p class="product-description">
+                            Your favorite beans, always within reach.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="price">EGP 300</span>
+
+                            <button class="text-add add-btn"
+                                    type="button"
+                                    data-name="Signature Coffee Jar"
+                                    data-price="300">
+                                Add to Cart +
+                            </button>
+                        </div>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+        <!-- PROMO BANNER -->
+        <section class="promo-banner">
+
+            <div class="promo-image">
+                <img src="images/coffee-beans.jpg"
+                     alt="Carefully selected coffee beans"
+                     loading="lazy">
+            </div>
+
+            <div class="promo-content">
+                <p class="eyebrow">A MOMENT JUST FOR YOU</p>
+
+                <h2>
+                    Your Daily Ritual.<br>
+                    <span>Elevated.</span>
+                </h2>
+
+                <p>
+                    Slow down, take a breath, and enjoy
+                    the little things with a perfect cup of coffee.
+                </p>
+
+                <a href="#products" class="primary-button">
+                    FIND YOUR FAVORITE →
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT US -->
+        <section class="about section-spacing" id="about">
+
+            <div class="about-image">
+                <img src="images/cappuccino.jpg"
+                     alt="Coffee prepared with care"
+                     loading="lazy">
+            </div>
+
+            <div class="about-content">
+                <p class="eyebrow">MORE THAN JUST COFFEE</p>
+
+                <h2>
+                    Crafted With Care.<br>
+                    <span>Served With Love.</span>
+                </h2>
+
+                <p>
+                    We believe that coffee is more than a drink.
+                    It is a moment of comfort, a daily ritual,
+                    and a reason to slow down.
+                </p>
+
+                <p>
+                    From carefully selected beans to the final cup,
+                    we celebrate the little details that make
+                    every coffee moment special.
+                </p>
+
+                <a href="#products" class="text-link">
+                    DISCOVER OUR COLLECTION →
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter" id="contact">
+
+            <p class="eyebrow">STAY IN THE LOOP</p>
+
+            <h2>
+                Good Coffee.<br>
+                <span>Good Moments.</span>
+            </h2>
+
+            <p>
+                Discover your next favorite coffee with us.
+            </p>
+
+            <a href="#products" class="primary-button">
+                EXPLORE PRODUCTS →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+                <a href="#top" class="logo">
+                    COFFEE<span>.</span>
+                </a>
+
+                <p>
+                    Making everyday coffee moments
+                    a little more special.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Explore</h3>
+                <a href="#top">Home</a>
+                <a href="#products">Products</a>
+                <a href="#about">Our Story</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>Get In Touch</h3>
+                <a href="mailto:hello@example.com">Email Us</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Coffee Shop. All rights reserved.</p>
+            <a href="#top">Back to Top ↑</a>
+        </div>
+
+    </footer>
+
+
+    <!-- SHOPPING CART BACKDROP -->
+    <div class="cart-backdrop" id="cart-backdrop"></div>
+
+
+    <!-- SHOPPING CART -->
+    <aside class="cart-panel"
+           id="cart"
+           aria-label="Shopping cart"
+           aria-hidden="true">
+
+        <div class="cart-header">
+            <div>
+                <p class="eyebrow">YOUR SELECTION</p>
+                <h2>Your Shopping Cart</h2>
+            </div>
+
+            <button type="button"
+                    id="close-cart"
+                    class="close-cart"
+                    aria-label="Close shopping cart">
+                ×
+            </button>
+        </div>
+
+        <ul id="cart-items" class="cart-items"></ul>
+
+        <div class="cart-empty" id="cart-empty">
+            <p>Your cart is waiting for something delicious.</p>
+
+            <a href="#products" id="continue-shopping">
+                Explore Products →
+            </a>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total</span>
+
+                <strong>
+                    EGP <span id="cart-total">0</span>
+                </strong>
+            </div>
+
+            <button type="button"
+                    id="clear-cart"
+                    class="clear-cart">
+                Clear Cart
+            </button>
+
+            <p class="cart-note">
+                Demo store · No real payment processing
+            </p>
+        </div>
+
+    </aside>
+
+
+    <!-- FLOATING CART BUTTON -->
+    <button type="button"
+            id="cart-toggle"
+            class="cart-toggle"
+            aria-label="Open shopping cart"
+            aria-controls="cart"
+            aria-expanded="false">
+
+        <span aria-hidden="true">🛒</span>
+        <span>Cart</span>
+        <span class="cart-count" id="cart-count">0</span>
+
+    </button>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
