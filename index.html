@@ -1,255 +1,294 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#151515">
-  <meta name="description" content="Discover premium coffee beans, delicious coffee drinks, and coffee accessories.">
-  <title>Coffee Shop | Taste the Difference</title>
+  <meta name="theme-color" content="#21150f">
+  <meta name="description" content="اكتشفوا عالم القهوة الفاخرة والمشروبات المميزة وإكسسوارات القهوة.">
+  <title>Coffee Shop | A Taste of Luxury</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="header">
+  <header class="site-header">
     <nav class="navbar container">
-      <a href="#home" class="logo">COFFEE<span>.</span></a>
+      <a class="logo" href="#home" aria-label="Coffee Shop Home">
+        <span class="logo-icon">☕</span>
+        <span>COFFEE<span class="gold-dot">.</span></span>
+      </a>
 
       <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#products">Our Products</a>
-        <a href="#about">Our Story</a>
-        <a href="#contact">Contact</a>
+        <a href="#home">الرئيسية</a>
+        <a href="#products">منتجاتنا</a>
+        <a href="#about">حكايتنا</a>
+        <a href="#contact">تواصل معنا</a>
       </div>
 
-      <a href="#products" class="btn btn-small">Shop Now</a>
+      <button class="nav-cart brown-button" id="cart-toggle" type="button">
+        السلة <span id="cart-count">0</span>
+      </button>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="hero-overlay"></div>
+      <div class="hero-shade"></div>
+
       <div class="hero-content container">
-        <p class="eyebrow">WELCOME TO OUR COFFEE WORLD</p>
-        <h1>COFFEE<br><span>SHOP</span></h1>
+        <p class="hero-kicker">YOUR DAILY DOSE OF LUXURY</p>
+
+        <h1 class="hero-title">
+          COFFEE
+          <span>SHOP</span>
+        </h1>
+
+        <div class="hero-divider"></div>
+
         <p class="hero-description">
-          Every cup tells a story. Discover the perfect blend
-          of rich flavor, warmth, and unforgettable moments.
+          قهوتك المفضلة، بمذاق استثنائي ولمسة من الفخامة.
+          <br>
+          لحظات هادئة تبدأ بفنجان قهوة مثالي.
         </p>
-        <a href="#products" class="btn">Explore Our Collection</a>
+
+        <a href="#products" class="brown-button hero-button">
+          اكتشف مجموعتنا <span>←</span>
+        </a>
+
+        <div class="hero-note">
+          <span>✦</span> QUALITY IN EVERY CUP
+        </div>
+      </div>
+
+      <div class="hero-bottom-label">EST. WITH LOVE · COFFEE CULTURE</div>
+    </section>
+
+    <section class="features section-space">
+      <div class="container features-grid">
+        <article class="feature">
+          <span class="feature-symbol">✧</span>
+          <h3>جودة مختارة</h3>
+          <p>منتجات مختارة بعناية لعشاق القهوة.</p>
+        </article>
+
+        <article class="feature">
+          <span class="feature-symbol">☕</span>
+          <h3>مذاق لا يُنسى</h3>
+          <p>نكهات غنية تناسب لحظاتك المميزة.</p>
+        </article>
+
+        <article class="feature">
+          <span class="feature-symbol">♡</span>
+          <h3>تفاصيل بحب</h3>
+          <p>اهتمام بالتفاصيل من أول اختيار لآخر رشفة.</p>
+        </article>
       </div>
     </section>
 
-    <section class="benefits section-padding">
-      <div class="container benefits-grid">
-        <div class="benefit">
-          <span class="benefit-icon">☕</span>
-          <h3>Premium Quality</h3>
-          <p>Carefully selected coffee for a rich, memorable taste.</p>
-        </div>
-
-        <div class="benefit">
-          <span class="benefit-icon">✦</span>
-          <h3>Freshly Roasted</h3>
-          <p>Fresh coffee aromas in every cup and every blend.</p>
-        </div>
-
-        <div class="benefit">
-          <span class="benefit-icon">♡</span>
-          <h3>Made With Love</h3>
-          <p>Every detail is chosen to make your coffee moment special.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="products-section section-padding" id="products">
+    <section class="products-section section-space" id="products">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">OUR COLLECTION</p>
-          <h2>Find Your Perfect <span>Cup</span></h2>
-          <p>Explore our carefully selected coffee and accessories.</p>
+          <p class="section-kicker">THE COFFEE COLLECTION</p>
+          <h2>اختاري <span>قهوتك المفضلة</span></h2>
+          <p>مجموعة مميزة من القهوة والمشروبات وإكسسوارات القهوة.</p>
         </div>
 
-        <div class="product-filters">
-          <button class="filter-btn active" data-filter="all">All Products</button>
-          <button class="filter-btn" data-filter="beans">Coffee Beans</button>
-          <button class="filter-btn" data-filter="drinks">Coffee Drinks</button>
-          <button class="filter-btn" data-filter="accessories">Accessories</button>
+        <div class="filter-list" aria-label="تصفية المنتجات">
+          <button class="filter-btn active" data-filter="all" type="button">كل المنتجات</button>
+          <button class="filter-btn" data-filter="beans" type="button">حبوب القهوة</button>
+          <button class="filter-btn" data-filter="drinks" type="button">المشروبات</button>
+          <button class="filter-btn" data-filter="accessories" type="button">الإكسسوارات</button>
         </div>
 
         <div class="products-grid">
+
           <article class="product-card" data-category="beans">
             <div class="product-image">
-              <img src="images/coffee-beans.png" alt="Premium Coffee Beans">
-              <span class="product-tag">BEST SELLER</span>
+              <img src="images/coffee-beans.png" alt="حبوب قهوة فاخرة" loading="lazy">
+              <span class="product-label">الأكثر تميزًا</span>
             </div>
             <div class="product-info">
-              <p class="product-category">COFFEE BEANS</p>
+              <p class="product-type">COFFEE BEANS</p>
               <h3>Premium Coffee Beans</h3>
-              <p class="product-description">Rich aroma with a smooth, balanced finish.</p>
+              <p class="product-description">حبوب قهوة مختارة لعشاق النكهة الغنية والرائحة المميزة.</p>
               <div class="product-bottom">
-                <span class="price">EGP 250</span>
-                <button class="add-btn" data-name="Premium Coffee Beans" data-price="250">Add to Cart +</button>
+                <span class="product-price">250 ج.م</span>
+                <button class="add-btn" data-name="Premium Coffee Beans" data-price="250" type="button">أضيفي للسلة +</button>
               </div>
             </div>
           </article>
 
           <article class="product-card" data-category="drinks">
             <div class="product-image">
-              <img src="images/iced-coffee.png" alt="Iced Coffee">
+              <img src="images/iced-coffee.png" alt="آيس كوفي" loading="lazy">
             </div>
             <div class="product-info">
-              <p class="product-category">COFFEE DRINKS</p>
+              <p class="product-type">COLD COFFEE</p>
               <h3>Iced Coffee</h3>
-              <p class="product-description">A refreshing coffee experience served cold.</p>
+              <p class="product-description">قهوة باردة ومنعشة لعشاق الانتعاش والمذاق الغني.</p>
               <div class="product-bottom">
-                <span class="price">EGP 120</span>
-                <button class="add-btn" data-name="Iced Coffee" data-price="120">Add to Cart +</button>
+                <span class="product-price">120 ج.م</span>
+                <button class="add-btn" data-name="Iced Coffee" data-price="120" type="button">أضيفي للسلة +</button>
               </div>
             </div>
           </article>
 
           <article class="product-card" data-category="drinks">
             <div class="product-image">
-              <img src="images/cappuccino.png" alt="Classic Cappuccino">
+              <img src="images/cappuccino.png" alt="كابتشينو" loading="lazy">
             </div>
             <div class="product-info">
-              <p class="product-category">COFFEE DRINKS</p>
+              <p class="product-type">HOT COFFEE</p>
               <h3>Classic Cappuccino</h3>
-              <p class="product-description">Espresso and silky milk foam in perfect harmony.</p>
+              <p class="product-description">مزيج متوازن من القهوة والحليب برغوة ناعمة.</p>
               <div class="product-bottom">
-                <span class="price">EGP 100</span>
-                <button class="add-btn" data-name="Classic Cappuccino" data-price="100">Add to Cart +</button>
+                <span class="product-price">100 ج.م</span>
+                <button class="add-btn" data-name="Classic Cappuccino" data-price="100" type="button">أضيفي للسلة +</button>
               </div>
             </div>
           </article>
 
           <article class="product-card" data-category="accessories">
             <div class="product-image">
-              <img src="images/french-press.png" alt="French Press">
+              <img src="images/french-press.png" alt="أداة تحضير القهوة French Press" loading="lazy">
             </div>
             <div class="product-info">
-              <p class="product-category">ACCESSORIES</p>
+              <p class="product-type">ACCESSORIES</p>
               <h3>French Press</h3>
-              <p class="product-description">Brew a full-bodied cup right at home.</p>
+              <p class="product-description">أداة أنيقة لتحضير قهوتك المفضلة في المنزل.</p>
               <div class="product-bottom">
-                <span class="price">EGP 450</span>
-                <button class="add-btn" data-name="French Press" data-price="450">Add to Cart +</button>
+                <span class="product-price">450 ج.م</span>
+                <button class="add-btn" data-name="French Press" data-price="450" type="button">أضيفي للسلة +</button>
               </div>
             </div>
           </article>
 
           <article class="product-card" data-category="accessories">
             <div class="product-image">
-              <img src="images/coffee-mug.png" alt="Classic Coffee Mug">
+              <img src="images/coffee-mug.png" alt="كوب قهوة كلاسيكي" loading="lazy">
             </div>
             <div class="product-info">
-              <p class="product-category">ACCESSORIES</p>
+              <p class="product-type">ACCESSORIES</p>
               <h3>Classic Coffee Mug</h3>
-              <p class="product-description">A simple, timeless mug for your daily ritual.</p>
+              <p class="product-description">كوب بتصميم بسيط وأنيق لكل لحظات القهوة.</p>
               <div class="product-bottom">
-                <span class="price">EGP 180</span>
-                <button class="add-btn" data-name="Classic Coffee Mug" data-price="180">Add to Cart +</button>
+                <span class="product-price">180 ج.م</span>
+                <button class="add-btn" data-name="Classic Coffee Mug" data-price="180" type="button">أضيفي للسلة +</button>
               </div>
             </div>
           </article>
 
           <article class="product-card" data-category="beans">
             <div class="product-image">
-              <img src="images/coffee-jar.png" alt="Signature Coffee Jar">
+              <img src="images/coffee-jar.png" alt="برطمان قهوة" loading="lazy">
             </div>
             <div class="product-info">
-              <p class="product-category">COFFEE BEANS</p>
+              <p class="product-type">COFFEE ESSENTIALS</p>
               <h3>Signature Coffee Jar</h3>
-              <p class="product-description">Keep your favorite coffee fresh and ready.</p>
+              <p class="product-description">برطمان عملي وأنيق لحفظ القهوة وتنظيم ركن القهوة.</p>
               <div class="product-bottom">
-                <span class="price">EGP 300</span>
-                <button class="add-btn" data-name="Signature Coffee Jar" data-price="300">Add to Cart +</button>
+                <span class="product-price">300 ج.م</span>
+                <button class="add-btn" data-name="Signature Coffee Jar" data-price="300" type="button">أضيفي للسلة +</button>
               </div>
             </div>
           </article>
+
         </div>
       </div>
     </section>
 
-    <section class="promo-section">
-      <div class="promo-image">
-        <img src="images/coffee-beans.png" alt="Fresh Coffee Beans">
+    <section class="story-banner">
+      <div class="story-image">
+        <img src="images/coffee-beans.png" alt="حبوب القهوة" loading="lazy">
       </div>
-      <div class="promo-content">
-        <p class="eyebrow">A LITTLE MOMENT OF JOY</p>
-        <h2>Good Coffee.<br>Great <span>Moments.</span></h2>
-        <p>Make every morning special with coffee that brings comfort, flavor, and warmth to your day.</p>
-        <a href="#products" class="btn">Shop the Collection</a>
+      <div class="story-content">
+        <p class="section-kicker">A MOMENT JUST FOR YOU</p>
+        <h2>كل فنجان<br>له <span>حكاية</span></h2>
+        <p>خدي لحظة لنفسك، واستمتعي بتفاصيل صغيرة بتصنع يومًا أجمل.</p>
+        <a href="#products" class="brown-button">تسوقي الآن <span>←</span></a>
       </div>
     </section>
 
-    <section class="about-section section-padding" id="about">
+    <section class="about-section section-space" id="about">
       <div class="container about-grid">
         <div class="about-image">
-          <img src="images/cappuccino.png" alt="Freshly Prepared Cappuccino">
+          <img src="images/cappuccino.png" alt="فنجان كابتشينو" loading="lazy">
         </div>
         <div class="about-content">
-          <p class="eyebrow">OUR STORY</p>
-          <h2>More Than Just <span>Coffee</span></h2>
+          <p class="section-kicker">OUR STORY</p>
+          <h2>القهوة مش مجرد <span>مشروب</span></h2>
           <p>
-            We believe coffee is more than a drink. It is a pause in a busy day,
-            a conversation with a friend, and a little moment worth enjoying.
+            القهوة لحظة هدوء وسط زحمة اليوم، وبداية صباح جديد،
+            ووقت لطيف بنشاركه مع الناس اللي بنحبهم.
           </p>
           <p>
-            From carefully selected beans to timeless accessories,
-            our collection is made for people who appreciate every sip.
+            اخترنا مجموعتنا بعناية عشان نساعدك تعيشي تجربة قهوة
+            مميزة، من أول اختيار لحد آخر رشفة.
           </p>
-          <a href="#products" class="text-link">Discover Our Products →</a>
+          <a href="#products" class="about-link">اكتشفي المنتجات ←</a>
         </div>
       </div>
     </section>
 
-    <section class="newsletter-section" id="contact">
-      <div class="container newsletter-content">
-        <p class="eyebrow">STAY IN THE LOOP</p>
-        <h2>A Fresh Cup of <span>Inspiration</span></h2>
-        <p>Discover our coffee collection and find your new favorite blend.</p>
-        <a href="#products" class="btn">Explore Products</a>
+    <section class="contact-section" id="contact">
+      <div class="container contact-content">
+        <p class="section-kicker">LET'S TALK COFFEE</p>
+        <h2>جاهزة لطلبك <span>المفضل؟</span></h2>
+        <p>اختاري منتجاتك من المجموعة وابعتي طلبك مباشرة على واتساب.</p>
+        <a class="brown-button contact-button"
+           href="https://wa.me/201115830573?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%D8%A9%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%B7%D9%84%D8%A8"
+           target="_blank" rel="noopener noreferrer">
+          تواصلي معنا عبر واتساب
+        </a>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="site-footer">
     <div class="container footer-content">
-      <a href="#home" class="logo">COFFEE<span>.</span></a>
-      <p>Good coffee makes every moment better.</p>
+      <a class="logo footer-logo" href="#home">☕ COFFEE<span class="gold-dot">.</span></a>
+      <p>قهوتك المفضلة، في كل لحظة تستحقها.</p>
+      <a class="footer-whatsapp" href="https://wa.me/201115830573" target="_blank" rel="noopener noreferrer">اطلبي عبر واتساب</a>
       <p class="copyright">© 2026 Coffee Shop. All rights reserved.</p>
     </div>
   </footer>
 
-  <button class="cart-toggle" id="cart-toggle" aria-label="Open shopping cart" aria-expanded="false">
-    🛒 <span id="cart-count">0</span>
-  </button>
+  <a class="whatsapp-float"
+     href="https://wa.me/201115830573?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%D8%A9%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%85%D9%86%20Coffee%20Shop"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="تواصلي معنا عبر واتساب">
+    <span class="whatsapp-symbol">✆</span>
+    <span>اطلبي على واتساب</span>
+  </a>
 
   <div class="cart-backdrop" id="cart-backdrop"></div>
 
-  <aside class="cart-panel" id="cart" aria-hidden="true">
+  <aside class="cart-panel" id="cart" aria-hidden="true" aria-label="سلة التسوق">
     <div class="cart-header">
-      <h2>Your Cart</h2>
-      <button id="close-cart" class="close-cart" aria-label="Close cart">×</button>
+      <div>
+        <p class="cart-kicker">YOUR SELECTION</p>
+        <h2>سلة التسوق</h2>
+      </div>
+      <button id="close-cart" class="close-cart" type="button" aria-label="إغلاق السلة">×</button>
     </div>
 
-    <p id="cart-empty">Your cart is empty. Let's find your favorite coffee!</p>
+    <p id="cart-empty">لسه مفيش منتجات في السلة 🤎</p>
     <ul id="cart-items"></ul>
 
     <div class="cart-footer">
       <div class="cart-total-row">
-        <span>Total</span>
-        <strong id="cart-total">EGP 0</strong>
+        <span>الإجمالي</span>
+        <strong id="cart-total">0 ج.م</strong>
       </div>
-      <button id="clear-cart" class="btn clear-cart" disabled>Clear Cart</button>
-      <button id="continue-shopping" class="btn continue-shopping">Continue Shopping</button>
+      <p class="cart-note">تأكيد الطلب يتم من خلال واتساب.</p>
+      <button id="whatsapp-checkout" class="checkout-btn" type="button">تأكيد الطلب عبر واتساب</button>
+      <button id="clear-cart" class="clear-cart" type="button" disabled>إفراغ السلة</button>
+      <button id="continue-shopping" class="continue-shopping" type="button">متابعة التسوق</button>
     </div>
   </aside>
 
