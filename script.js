@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const price = Number(button.dataset.price);
 
       if (!name || !Number.isFinite(price) || price < 0) {
-        alert("حصلت مشكلة في بيانات المنتج. جربي مرة تانية.");
+        alert("حصلت مشكلة في بيانات المنتج. جرب مرة تانية.");
         return;
       }
 
@@ -201,13 +201,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Send order details to WhatsApp
   checkoutButton.addEventListener("click", function () {
     if (cartItems.length === 0) {
-      alert("ضيفي منتج واحد على الأقل للسلة الأول.");
+      alert("ضيف منتج واحد على الأقل للسلة الأول.");
       return;
     }
 
     let total = 0;
 
-    let message = "مرحبًا، عايزة أأكد الطلب من Coffee Shop ☕\n\n";
+    let message = "مرحبًا، عايز أأكد الطلب من Coffee Shop ☕\n\n";
     message += "تفاصيل الطلب:\n";
 
     cartItems.forEach(function (item, index) {
